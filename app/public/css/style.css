@@ -1,0 +1,145 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  header {
+    font-family: 'Courier New', Courier, monospace
+  }
+  
+  a {
+    color: black
+  }
+  
+  a:hover {
+    color: darkgreen
+  }
+  
+  #septemberbook {
+    text-align: center;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
+  }
+  /* https://www.w3schools.com/howto/howto_css_image_center.asp */
+  
+  #description {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  footer {
+    background-color: darkgreen;
+    text-align: center;
+    padding: 10px;
+    color: white;
+  }
+  
+  
+  header {
+    background-color: darkgreen;
+    color: white;
+    padding: 10px;
+  }
+  
+  
+  
+  .navbar {
+    margin-bottom: 0px;
+  }
+  
+  .alert-success {
+    border-color: rgba(0, 0, 0, 0.164) 
+  }
+  
+  #userinfo {
+    background-color: rgba(0, 128, 0, 0.096);
+    text-align: center;
+    padding: 10px;
+    border: 1px darkgreen solid;
+    border-radius: 20px;
+    margin: 20px;
+  }
+  
+  
+  #source {
+    font-size: 7px
+  }
+  
+  
+  img {
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    padding: 2px;
+    width: 150px;
+  }
+  
+  img:hover {
+    box-shadow: 0 0 2px 1px darkgreen;
+  }
+  /* https://www.w3schools.com/howto/howto_css_thumbnail.asp */
+  
+  #logo {
+    border: black 3px; 
+    border-radius: 5px;
+  }
+  
+  .alert-success {
+    margin: 10px;
+    text-align: center;
+    width: 98%;
+  }
+  
+  .form-group {
+    margin: 1px;
+  }
+  
+  form {
+    margin-bottom: 5px
+  }
+  
+  h3 {
+    color: darkgreen;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder
+  }
+  
+  th[role=columnheader]:not(.no-sort) {
+      cursor: pointer;
+  }
+  
+  th[role=columnheader]:not(.no-sort):after {
+      content: '';
+      float: right;
+      margin-top: 7px;
+      border-width: 0 4px 4px;
+      border-style: solid;
+      border-color: #404040 transparent;
+      visibility: hidden;
+      opacity: 0;
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+  }
+  
+  th[aria-sort=ascending]:not(.no-sort):after {
+      border-bottom: none;
+      border-width: 4px 4px 0;
+  }
+  
+  th[aria-sort]:not(.no-sort):after {
+      visibility: visible;
+      opacity: 0.4;
+  }
+  
+  th[role=columnheader]:not(.no-sort):hover:after {
+      visibility: visible;
+      opacity: 1;
+  }
