@@ -1,3 +1,4 @@
+
 const SomeApp = {
     data() {
       return {
@@ -6,10 +7,14 @@ const SomeApp = {
         message: "Waiting ..."
       }
     },
-    created() {
-
-        //Method 1:
-        fetch('https://randomuser.me/api/')
+    computed: {
+        prettyBirthday() {
+            return dayjs(this.result.dob.date).format('D MMM YYYY')
+        }
+    },
+    methods:{
+        fetchUserData() {
+            fetch('https://randomuser.me/api/')
         .then(response => response.json())
         .then((json) => {
             console.log("Got json back:", json);
@@ -19,23 +24,10 @@ const SomeApp = {
         .catch( (error) => {
             console.error(error);
         });
-
-        console.log("B");
-        /*
-            .then(response => response.json())
-        Is the same as
-            .then(function(response) {return response.json()})
-        */
-
-
-        //Method 2:
-        // const response = await fetch("https://randomuser.me/api/");
-        // const responseJson = await response.json();
-
-        // console.log("Two:", responseJson);
-        // this.message = responseJson.results[0].name;
-        // this.result = responseJson.results[0];
-        
+        }
+    },
+    created() {
+        this.fetchUserData();
     }
 
   }
