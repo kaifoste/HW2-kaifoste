@@ -49,10 +49,11 @@
     <h4>Address: {{ result.location.country }}</h4>
     <h4>Birthday: {{ prettyBirthday }}</h4>
     <h4>Age: {{result.dob.age}}</h4>
-    <h4>Email:<a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></h4> 
+    <h4>Email: <a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></h4> 
     <!-- https://css-tricks.com/snippets/html/mailto-links/ -->
-		<input type="button" class = "btn btn-success" value="Refresh">
-    </div>  
+    <form v-on:submit.prevent="fetchUserData">
+      <button type="submit" class="btn btn-success"> Refresh </button>
+    </form>    </div>  
   </div>
   </main>
   <footer class="row">
