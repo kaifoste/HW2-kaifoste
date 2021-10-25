@@ -67,6 +67,14 @@
             <td>{{ book.pages }}</td>
             <td>{{ book.msrp }}</td>
             <td>{{ book.rating }}</td>
+            <td>
+              <button type="button" 
+                class="btn btn-outline-secondary btn-sm"
+                v-on:click="selectBookToEdit(book)">Edit</button>
+              <button type="button" 
+                class="btn btn-outline-secondary btn-sm" 
+                v-on:click="postDeleteBook(book)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table></div>
@@ -74,6 +82,7 @@
 <!-- https://getbootstrap.com/docs/4.5/components/forms/ -->
       <div class="col-lg-12 col-md-12 col-sm-12">
 			<h3>Have a book you think the club would love? Submit a suggestion:</h3>
+      <h3>{{ selectedBook === null ? "Add " : "Edit " }} Book</h3>
       <form v-on:submit.prevent="postNewBook">
       <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
@@ -108,10 +117,10 @@
       <div class="mb-3">
         <label for="rating" class="form-label">Rating (out of 5):</label>
         <input type="number" v-model="bookForm.rating"
-         class="form-control" id="rating">
+         class="form-control" id="rating" min= "0" step="1" max="5">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      </form></div>
+      <button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add " : "Edit " }} Book</button>
+      <button type="button" class="btn btn-outline-secondary" v-if="selectedBook" v-on:click="resetBookForm">Cancel</button>      </form></div>
   </main>
 </div>
   <footer class="row">
