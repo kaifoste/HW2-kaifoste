@@ -39,6 +39,13 @@ const SomeApp = {
                 console.error(err);
             })
         },
+        postBook(evt) {
+          if (this.selectedBook === null) {
+              this.postNewBook(evt);
+          } else {
+              this.postEditBook(evt);
+          }
+        },
         selectBook(s) {
             if (s == this.selectedBook) {
                 return;
@@ -48,26 +55,27 @@ const SomeApp = {
             this.fetchBookData(this.selectedBook);
         },
         postEditBook(evt) {
-            // this.offerForm.studentId = this.selectedStudent.id;        
-            console.log("Updating!", this.bookForm);
-            // alert("Posting!");
-    
-            fetch('api/book/update.php', {
-                method:'POST',
-                body: JSON.stringify(this.bookForm),
-                headers: {
-                  "Content-Type": "application/json; charset=utf-8"
-                }
-              })
-              .then( response => response.json() )
-              .then( json => {
-                console.log("Returned from post:", json);
-                // TODO: test a result was returned!
-                this.books = json;
-                
-                // reset the form
-                this.resetBookForm();
-              });
+          // this.bookForm.studentId = this.selectedStudent.id;
+          this.bookForm.title = this.selectedBook.title;
+  
+          console.log("Updating!", this.bookForm);
+  
+          fetch('api/book/update.php', {
+              method:'POST',
+              body: JSON.stringify(this.bookForm),
+              headers: {
+                "Content-Type": "application/json; charset=utf-8"
+              }
+            })
+            .then( response => response.json() )
+            .then( json => {
+              console.log("Returned from post:", json);
+              // TODO: test a result was returned!
+              this.books = json;
+  
+              // reset the form
+              this.resetBookForm();
+            });
         },
         postNewBook(evt) {
             // this.offerForm.studentId = this.selectedStudent.id;        
@@ -78,7 +86,7 @@ const SomeApp = {
                 method:'POST',
                 body: JSON.stringify(this.bookForm),
                 headers: {
-                  "Content-Type": "application/json; charset=utf-8"
+                  "Content-Type": "application/json; charset=utf-8",
                 }
               })
               .then( response => response.json() )
@@ -120,7 +128,7 @@ const SomeApp = {
         resetBookForm() {
             this.selectedBook = null;
             this.bookForm = {};
-        }
+        },
     },
     created() {
         this.fetchUserData();

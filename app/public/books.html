@@ -81,9 +81,8 @@
 
 <!-- https://getbootstrap.com/docs/4.5/components/forms/ -->
       <div class="col-lg-12 col-md-12 col-sm-12">
-			<h3>Have a book you think the club would love? Submit a suggestion:</h3>
-      <h3>{{ selectedBook === null ? "Add " : "Edit " }} Book</h3>
-      <form v-on:submit.prevent="postNewBook">
+        <h3>{{ selectedBook === null ? "Add " : "Edit " }} Book</h3>
+        <form v-on:submit.prevent="postBook">
       <div class="mb-3">
         <label for="title" class="form-label">Title:</label>
         <input type="text" v-model="bookForm.title"

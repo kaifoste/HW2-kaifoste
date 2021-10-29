@@ -32,13 +32,12 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
   'UPDATE book SET
-    book = ?,
-    title = ?, 
+    title = ?,
     author = ?,
-    yearpublished = ?, 
-    publisher = ?, 
-    pages = ?, 
-    msrp = ?, 
+    yearpublished = ?,
+    publisher = ?,
+    pages = ?,
+    msrp = ?,
     rating = ?
   WHERE id = ?'
 );
@@ -51,6 +50,7 @@ $stmt->execute([
   $_POST['pages'],
   $_POST['msrp'],
   $_POST['rating'],
+  $_POST['id']
 ]);
 
 // Get auto-generated PK from DB
